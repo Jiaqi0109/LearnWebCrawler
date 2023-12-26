@@ -26,7 +26,7 @@ window.setTimeout = function (x, delay) {
     typeof (x) == "function" ? x() : undefined;
     typeof (x) == "string" ? eval(x) : undefined;
     // 正确应该 生成UUID，并且保存到内存
-    return 123;
+    return 1;
 };
 catvm.safefunction(window.setTimeout);
 window.setInterval = function (x, delay) {
@@ -34,15 +34,13 @@ window.setInterval = function (x, delay) {
     typeof (x) == "function" ? x() : undefined;
     typeof (x) == "string" ? eval(x) : undefined;
     // 正确应该 生成UUID，并且保存到内存
-    return 123;
+    return 1;
 };
 catvm.safefunction(window.setInterval);
 
 // 原型下面可以取这个属性\方法，就直接放原型即可
 // 只要是方法就需要catvm.safefunction 进行toSting保护
-window.open = function open() {
-    debugger;
-};
+window.open = function open() {debugger};
 catvm.safefunction(window.open);
 // 赋值空对象最好使用这种class chrome{} 形式，而不是 {},因为这样我们可以看名字，并且最好挂上代理
 
@@ -50,31 +48,13 @@ window.chrome = catvm.proxy(class chrome {});
 
 // 打个debugger，因为我们还不知道js有没有调用该方法，也许只是获取了一下，看有没有该方法呢
 // 等它真正调用的时候，我们再补全其参数及返回
-window.DeviceOrientationEvent = function DeviceOrientationEvent() {
-    debugger;
-};
+window.DeviceOrientationEvent = function DeviceOrientationEvent() {debugger};
 catvm.safefunction(window.DeviceOrientationEvent);
 
-window.DeviceMotionEvent = function DeviceMotionEvent() {
-    debugger;
-};
+window.DeviceMotionEvent = function DeviceMotionEvent() {debugger};
 catvm.safefunction(window.DeviceMotionEvent);
-
-// window.localStorage = class localStorage {
-// };
-// window.localStorage.getItem = function getItem() {
-//     debugger;
-// };
-// catvm.safefunction(window.localStorage.getItem);
-
-// window.localStorage.setItem = function setItem() {
-//     debugger;
-// };
-// catvm.safefunction(window.localStorage.setItem);
-
-// window.localStorage = catvm.proxy(window.localStorage)
 //////////////////////
 
 
 window = catvm.proxy(window);
-Window = catvm.proxy(Window);
+// Window = catvm.proxy(Window);

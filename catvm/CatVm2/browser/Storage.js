@@ -1,56 +1,57 @@
-// 从浏览器中知道Storage是全局的，且原型链只是一层，因此比较好伪造（window有多层所以要伪造多层）
-var Storage = function Storage() { // 构造函数
-    throw new TypeError("Illegal constructor");
-};
+const Storage = function Storage() {
+    throw new TypeError('Illegal constructor')
+}
 catvm.safefunction(Storage);
 
 Object.defineProperties(Storage.prototype, {
     [Symbol.toStringTag]: {
-        value: "Storage",
-        configurable: true
+        value: 'Storage',
+        configurable: true,
     }
-});
+})
 
-var localStorage = {};
-localStorage.__proto__ = Storage.prototype;
-
-
-////////// 浏览器代码自动生成部分
-function get_length() {
-    return Object.keys(catvm.memory.storage).length;
-}
-
-Storage.prototype.length = get_length();
-Storage.prototype.key = function key(index) {
-    return Object.keys(catvm.memory.storage)[index];
+Storage.prototype.length = 0;
+Storage.prototype.clear = function clear() {
+    debugger
+    let temp = Object.keys(this)
+    for (let key = 0; key < temp.length; key++) {
+        delete this[key]
+    }
 };
-catvm.safefunction(Storage.prototype.key);
-Storage.prototype.getItem = function getItem(keyName) {
-    var result = catvm.memory.storage[keyName];
-    if (result) {
-        return result;
-    } else {
-        return null;
-    }
+catvm.safefunction(Storage.prototype.clear);
+
+Storage.prototype.getItem = function getItem(k) {
+    debugger
+    return this[k] || null
 };
 catvm.safefunction(Storage.prototype.getItem);
 
-Storage.prototype.setItem = function setItem(keyName, keyValue) {
-    catvm.memory.storage[keyName] = keyValue;
+Storage.prototype.key = function key() {
+    debugger
+    return Object.keys(this)[index]
 };
-catvm.safefunction(Storage.prototype.setItem);
+catvm.safefunction(Storage.prototype.key);
 
-Storage.prototype.removeItem = function removeItem(keyName) {
-    delete catvm.memory.storage[keyName];
+Storage.prototype.removeItem = function removeItem(k) {
+    debugger
+    delete this[k]
 };
 catvm.safefunction(Storage.prototype.removeItem);
 
-Storage.prototype.clear = function clear() {
-    catvm.memory.storage = {};
+Storage.prototype.setItem = function setItem(k, v) {
+    debugger
+    this[k] = v
 };
-catvm.safefunction(Storage.prototype.clear);
-////////
+catvm.safefunction(Storage.prototype.setItem);
 
-// 代理一般挂在实例上
-localStorage = catvm.proxy(localStorage);
-// Storage = catvm.proxy(Storage);
+Storage.prototype.__defineGetter__('length', function length() {
+    return Object.keys(this).length
+})
+
+localStorage = {}
+localStorage.__proto__ = Storage.prototype
+localStorage = catvm.proxy(localStorage)
+
+sessionStorage = {}
+sessionStorage.__proto__ = Storage.prototype
+sessionStorage = catvm.proxy(sessionStorage)

@@ -24,9 +24,9 @@ document.getElementById = function getElementById(id) {
 catvm.safefunction(document.getElementById);
 
 document.getElementsByTagName = function getElementsByTagName(tag_name) {
-    var map_tag = {'body': ["<body link=\"#0000cc\" mpa-version=\"7.16.14\" mpa-extension-id=\"ibefaeehajgcpooopoegkifhgecigeeg\" style=\"\"></body>"]};
+    // var map_tag = {'body': ["<body link=\"#0000cc\" mpa-version=\"7.16.14\" mpa-extension-id=\"ibefaeehajgcpooopoegkifhgecigeeg\" style=\"\"></body>"]};
     debugger;
-    return map_tag[tag_name]
+    // return map_tag[tag_name]
 };
 catvm.safefunction(document.getElementsByTagName);
 

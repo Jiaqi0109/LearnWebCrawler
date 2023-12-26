@@ -11,23 +11,7 @@ Object.defineProperties(Navigator.prototype, {
     }
 });
 
-navigator = {
-    // platform: 'Win32',
-    // userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36',
-    // maxTouchPoints: 0,
-    // onLine: true,
-    // mimeTypes: [{
-    //     suffixes: "pdf",
-    //     type: "application/pdf"
-    // }],
-    //
-    // plugins: [{
-    //     "0": {},
-    //     "1": {}
-    // }]
-
-};
-// 设置原型对象
+navigator = {};
 navigator.__proto__ = Navigator.prototype;
 
 
@@ -42,13 +26,9 @@ Navigator.prototype.mimeTypes = [{
     suffixes: "pdf",
     type: "application/pdf"
 }];
-Navigator.prototype.plugins = [{
-    "0": {},
-    "1": {}
-}];
 //上面是定义原型的属性
 // navigator比较特殊，它会把属性继续定义到 静态属性中，所以我们也做一下
-for (var _prototype in Navigator.prototype) {
+for (let _prototype in Navigator.prototype) {
     navigator[_prototype] = Navigator.prototype[_prototype]; // 将原型上的方法复制一遍给实例
     if (typeof (Navigator.prototype[_prototype]) != "function") {
         // 相当于Object.defineProperty的get方法，Proxy的get方法，hook原型上的所有方法属性

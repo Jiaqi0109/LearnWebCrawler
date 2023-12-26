@@ -29,6 +29,7 @@ function GetCode() {
     // 加载DOM环境
     code += fs.readFileSync(`${__dirname}/browser/Document.js`) + '\r\n';
     // 引入用户自定义环境
+    code += "console.log('============================ START ===============================');\r\n"
     code += "debugger;\r\n";
     return code;
 

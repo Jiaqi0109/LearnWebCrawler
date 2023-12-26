@@ -4,8 +4,7 @@ const {VM, VMScript} = require('vm2');
 
 var catvm2_code = catvm2.GetCode();  // 框架代码
 
-// var web_js_code = fs.readFileSync(`${__dirname}/jy.js`) ; // 网站js代码
-// var web_js_code = fs.readFileSync(`${__dirname}/rs.js`); // 网站js代码
+// var web_js_code = fs.readFileSync(`${__dirname}/web.js`) ; // 网站js代码
 var web_js_code = 'debugger'; // 网站js代码
 var log_code = "\r\ncatvm.print.getAll();"
 var all_code = catvm2_code + web_js_code + log_code;

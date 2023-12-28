@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "fs": "^0.0.1-security",
+    "jsdom": "^23.0.1",
     "vm2": "^3.9.19"
   }
 }

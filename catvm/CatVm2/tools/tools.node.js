@@ -7,6 +7,7 @@ function GetCode() {
     code += fs.readFileSync(`${__dirname}/vm_safefunction.js`) + '\r\n';
     code += fs.readFileSync(`${__dirname}/vm_print.js`) + '\r\n';
     code += fs.readFileSync(`${__dirname}/vm_proxy.js`) + '\r\n';
+    code += fs.readFileSync(`${__dirname}/btoa_atob.js`) + '\r\n';
     return code;
 
 }

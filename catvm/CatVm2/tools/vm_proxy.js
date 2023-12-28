@@ -3,7 +3,7 @@
 catvm.proxy = function (obj) {
     // Proxy 可以多层代理，即 a = new proxy(a); a = new proxy(a);第二次代理
     // 后代理的检测不到先代理的
-    if (catvm.memory.config.proxy == false) {
+    if (catvm.config.proxy == false) {
         return obj
     }
     return new Proxy(obj, {

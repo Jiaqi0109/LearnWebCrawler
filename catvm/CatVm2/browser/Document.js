@@ -11,7 +11,9 @@ Object.defineProperties(Document.prototype, {
 });
 document = {};
 document.__proto__ = Document.prototype;
-
+document.toString = function toString () {
+    return '[object HTMLDocument]'
+}
 
 ////////// 浏览器代码自动生成部分
 document.cookie = '';
@@ -30,6 +32,10 @@ document.getElementsByTagName = function getElementsByTagName(tag_name) {
 };
 catvm.safefunction(document.getElementsByTagName);
 
+document.getElementsByClassName = function getElementsByClassName (tag_name) {
+    debugger;
+};
+catvm.safefunction(document.getElementsByClassName );
 
 document.addEventListener = function addEventListener(type, listener, options, useCapture) {
     debugger;

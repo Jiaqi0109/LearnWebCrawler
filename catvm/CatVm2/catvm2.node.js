@@ -19,10 +19,10 @@ function GetCode() {
     code += fs.readFileSync(`${__dirname}/browser/Screen.js`) + '\r\n';
     code += fs.readFileSync(`${__dirname}/browser/Storage.js`) + '\r\n';
 
-    code += fs.readFileSync(`${__dirname}/browser/MimeType.js`) + '\r\n';
-    code += fs.readFileSync(`${__dirname}/browser/Plugin.js`) + '\r\n';
-    code += fs.readFileSync(`${__dirname}/browser/PluginArray.js`) + '\r\n';
-    code += fs.readFileSync(`${__dirname}/browser/MimeTypeArray.js`) + '\r\n';
+    // code += fs.readFileSync(`${__dirname}/browser/MimeType.js`) + '\r\n';
+    // code += fs.readFileSync(`${__dirname}/browser/Plugin.js`) + '\r\n';
+    // code += fs.readFileSync(`${__dirname}/browser/PluginArray.js`) + '\r\n';
+    // code += fs.readFileSync(`${__dirname}/browser/MimeTypeArray.js`) + '\r\n';
 
     // 加载HTML节点
     code += vmhtml.GetCode() + '\r\n';

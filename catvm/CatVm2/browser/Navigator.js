@@ -13,6 +13,9 @@ Object.defineProperties(Navigator.prototype, {
 
 navigator = {};
 navigator.__proto__ = Navigator.prototype;
+navigator.toString = function toString () {
+    return '[object Navigator]'
+}
 
 
 ////////// 需要补的内容

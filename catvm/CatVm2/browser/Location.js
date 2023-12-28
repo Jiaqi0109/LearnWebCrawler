@@ -11,13 +11,16 @@ Object.defineProperties(Location.prototype, {
 });
 location = {};
 location.__proto__ = Location.prototype;
+location.toString = function toString () {
+    return this.href
+}
 
 
 ////////// 浏览器代码自动生成部分
-location.href = "";
+location.href = catvm.config.href || '';
 location.port = "";
 location.protocol = 'https:';
-location.host = '';
+location.host = catvm.config.host || '';
 ////////
 
 

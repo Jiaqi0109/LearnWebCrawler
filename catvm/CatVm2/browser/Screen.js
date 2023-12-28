@@ -13,6 +13,9 @@ Object.defineProperties(Screen.prototype, {
 });
 screen = {};
 screen.__proto__ = Screen.prototype;
+screen.toString = function toString () {
+    return '[object Screen]'
+}
 
 
 ////////// 浏览器代码自动生成部分
